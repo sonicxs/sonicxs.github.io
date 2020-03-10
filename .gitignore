@@ -1,0 +1,8 @@
+*.log
+*.swp
+.DS_Store
+**/DerivedData/**
+bin/
+gen/
+.idea/
+.gradle/
