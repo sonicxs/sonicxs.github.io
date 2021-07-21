@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>首页</title>
+</head>
+<body>
+    <div class="container" style="margin-top:30px">
+		<div id="inputDiv">
+			<label>输入信号最低/高价</label>
+			<input type="text" name="Start Price" id="startPrice" value="25.0" />
+			<br />
+			<label>输入信号收盘价</label>
+			<input type="text" name="End Price" id="endPrice" value="25.5" />
+			<br />
+			<label>输入转换值</label>
+			<input type="text" name="Trans Price" id="transPrice" value="" />
+			<br />
+			<input type="button" name="trans" id="transButton" value="计算" onclick="onTransClick()"/>
+		</div>
+    	<ul>
+    		<li><label>0.0 base </label><label id="f1"></label></li>
+    		<li><label>0.236 Major Entry </label><label id="f11"></label></li>
+    		<li><label>0.382 Minor Entry </label><label id="f12"></label></li>
+    		<li><label>0.618  </label><label id="f13"></label></li>
+    		<li><label>0.786 Pullback </label><label id="f14"></label></li>
+    		<li><label>0.880 Pullback </label><label id="f15"></label></li>
+			<li><label>1.0 Setup </label><label id="f2"></label></li>
+			<li><label>1.618 TP1 </label><label id="f3"></label></li>
+			<li><label>1.786 TP1 Ext</label><label id="f31"></label></li>
+			<li><label>1.880 TP1 Ext</label><label id="f32"></label></li>
+			<li><label>2.618 TP2 </label><label id="f4"></label></li>
+			<li><label>2.786 TP2 Ext</label><label id="f41"></label></li>
+			<li><label>2.880 TP2 Ext</label><label id="f42"></label></li>
+			<li><label>4.236 TP3 </label><label id="f5"></label></li>
+			<li><label>4.786 TP3 Ext</label><label id="f51"></label></li>
+			<li><label>4.880 TP3 Ext</label><label id="f52"></label></li>
+
+    	</ul>
+    <div id="content" innerHTML=""></div>
+</body>
+<script>
+	function onTransClick() {
+		var stp = document.getElementById("startPrice").value;
+		var enp = document.getElementById("endPrice").value;
+		var trp = document.getElementById("transPrice").value;
+		if (stp == enp) {
+			alert("价格相等");
+			return;
+		}
+		var base0 = stp;
+		var base1 = enp;
+		var difp = enp - stp;		
+		var tp1p = parseFloat(difp * 1.618) + parseFloat(stp);
+		var tp2p = parseFloat(difp * 2.618) + parseFloat(stp);
+		var tp3p = parseFloat(difp * 4.236) + parseFloat(stp);
+		
+		document.getElementById("f1").innerHTML=base0;
+		document.getElementById("f11").innerHTML=parseFloat(difp * 0.236) + parseFloat(stp);
+		document.getElementById("f12").innerHTML=parseFloat(difp * 0.382) + parseFloat(stp);
+		document.getElementById("f13").innerHTML=parseFloat(difp * 0.618) + parseFloat(stp);
+		document.getElementById("f14").innerHTML=parseFloat(difp * 0.786) + parseFloat(stp);
+		document.getElementById("f15").innerHTML=parseFloat(difp * 0.880) + parseFloat(stp);
+		document.getElementById("f2").innerHTML=base1;
+		document.getElementById("f3").innerHTML=tp1p;
+		document.getElementById("f31").innerHTML=parseFloat(difp * 1.786) + parseFloat(stp);
+		document.getElementById("f32").innerHTML=parseFloat(difp * 1.880) + parseFloat(stp);
+		document.getElementById("f4").innerHTML=tp2p;
+		document.getElementById("f41").innerHTML=parseFloat(difp * 2.786) + parseFloat(stp);
+		document.getElementById("f42").innerHTML=parseFloat(difp * 2.880) + parseFloat(stp);
+		document.getElementById("f5").innerHTML=tp3p;
+		document.getElementById("f51").innerHTML=parseFloat(difp * 4.786) + parseFloat(stp);
+		document.getElementById("f52").innerHTML=parseFloat(difp * 4.880) + parseFloat(stp);
+	}
+</script>
+</html>
