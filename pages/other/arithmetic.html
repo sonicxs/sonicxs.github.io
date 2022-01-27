@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>小学生口算</title>
+		<script type="text/javascript" src="./script/js_for_arithmetic.js"></script>
+	</head>
+	<body>
+		<div id="form_div">
+			<form name="option_form" method="post" onsubmit="return submit_start(this)">
+				您希望进行<input alt="正整数" type="number" size="6" placeholder="20" name="max_number"/>以内的四则运算
+				<br />
+				<br />
+				<br />
+				请选择测试的运算类型（可多选）<br />
+				<input type="checkbox" name="cb_addition" value="true" checked="true"/> 加法 <br /> <!-- 只要设置了checked，不管值为什么都是选中状态 -->
+				<input type="checkbox" name="cb_subtraction" value="true"/> 减法 <br />
+				<input type="checkbox" name="cb_multiplication" value="true"/> 乘法 <br />
+				<input type="checkbox" name="cb_division" value="true"/> 除法 <br />				
+				<br />
+				<br />
+				减法是否允许负数 <br />
+				<input type="radio" name="ra_allow_negative" value="true"/>是<br />
+				<br />
+				除法是否允许小数 ：结果为小数则按四舍五入最多保留三位小数<br />
+				<input type="radio" name="ra_allow_decimals" value="true"/>是<br />
+				<br />
+				<br />
+				<input type="submit" name="btn_submit" value="开始"/>
+			</form>			
+		</div>
+		
+		<div id="test_div" style="display: none;">
+			<form id="test_form" method="post" onsubmit="return submit_test(this)">
+				
+				
+			</form>
+		</div>
+		
+		<div id="result_div" style="display: none;">
+			<button id="restart_btn" onclick="restartButtonClick()">重新开始</button>
+		</div>
+	</body>
+</html>
