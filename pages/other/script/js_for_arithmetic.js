@@ -7,6 +7,7 @@
  
  var arithmeticObject = {addition:false, subtraction:false, multiplication:false, division:false};
  var arithmeticResultArray = new Array;
+ var startTime;
  
  function randomArithmetic(isAddition, isSubtraction, isMultiplication, isDivision) {
 	 arithmeticObject.addition = isAddition;
@@ -114,12 +115,13 @@
 	 testFormContent += '<input type="submit" id="formsi" value="提交"/>';
 	 console.log(testFormContent);
 	 document.getElementById("test_form").innerHTML = testFormContent;
-	 
+	 startTime = new Date();
 	 return false;
  }
  
  function submit_test(form) {
 	 //叉10060，圈11093，勾10004
+	 let nowTime = new Date();
 	 let formData = new FormData(form);
 	 // console.log(arithmeticResultArray);
 	 // console.log(formData);
@@ -142,6 +144,8 @@
 	 if (wrongNum == 0) {
 		 document.getElementById("formsi").style.display = "none";
 		 document.getElementById("result_div").style.display = "";
+		 let useTime = (nowTime - startTime)/1000;
+		 document.getElementById("result_div_p1").innerHTML = "总共用了" + useTime + "秒";
 	 }
 	 return false;
  }
