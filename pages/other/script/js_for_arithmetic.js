@@ -109,7 +109,7 @@
 		 // console.log(createExpression(randomArithmetic(isAddition, isSubtraction, isMultiplication, isDivision), maxNumber, isAllowNegative, isAllowDecimals));
 		 // document.writeln(createExpression(randomArithmetic(isAddition, isSubtraction, isMultiplication, isDivision), maxNumber, isAllowNegative, isAllowDecimals));
 		 let expressString = createExpression(randomArithmetic(isAddition, isSubtraction, isMultiplication, isDivision), maxNumber, isAllowNegative, isAllowDecimals);
-		 testFormContent += '<p id="formp' + i + '">' + expressString + '<input name="formi_name' + i + '" id="formi_id' + i +'" type="text" size=6/></p>';
+		 testFormContent += '<p id="formp' + i + '">' + expressString + '<input name="formi_name' + i + '" id="formi_id' + i +'" type="number" step=0.001 size=6/></p>';
 		 
 	 }
 	 testFormContent += '<input type="submit" id="formsi" value="提交"/>';
